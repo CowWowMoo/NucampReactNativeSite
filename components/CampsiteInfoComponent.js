@@ -96,8 +96,8 @@ class CampsiteInfo extends Component {
         this.state={
             showModal: false,
             rating: 5,
-            author: [],
-            text: [],
+            author: "",
+            text: "",
         };
     }
 
@@ -114,7 +114,7 @@ class CampsiteInfo extends Component {
     }
 
     handleComment(campsiteId) {
-        this.postComment(campsiteId, rating, author, text);
+        this.props.postComment(campsiteId, this.state.rating, this.state.author, this.state.text);
         this.toggleModal();
     }
 
@@ -122,8 +122,8 @@ class CampsiteInfo extends Component {
         this.setState({
             showModal: false,
             rating: 5,
-            author: [],
-            text: []
+            author: "",
+            text: ""
         });
     }
 
@@ -161,7 +161,7 @@ class CampsiteInfo extends Component {
                             placeholder={'Author'}
                             leftIcon={{type: 'font-awesome', name: 'user-o' }}
                             leftIconContainerStyle={{paddingRight: 10}}
-                            onChangeText={text => this.setState({text: text})}
+                            onChangeText={text => this.setState({author: text})}
                             value={Text}
                         />
                         <Input 
