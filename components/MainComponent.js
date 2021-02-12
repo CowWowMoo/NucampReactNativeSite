@@ -260,8 +260,8 @@ const MainNavigator = createDrawerNavigator(
             screen: FavoritesNavigator,
             navigationOptions: {
                 drawerLabel: 'My Favorites',
-                drawerIcon: ({tintColor}) -> (
-                    <Icon]
+                drawerIcon: ({tintColor}) => (
+                    <Icon
                         name='heart'
                         type='font-awesome'
                         size={24}
@@ -278,7 +278,7 @@ const MainNavigator = createDrawerNavigator(
 );
 
 
-const AppNavigator = createAppContainer(MainNavigator);
+const AppNavigator = createAppContainer(MainNavigator); 
 
 class Main extends Component {
 
