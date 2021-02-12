@@ -7,6 +7,8 @@ import { baseUrl } from '../shared/baseUrl';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { deleteFavorite } from '../redux/ActionCreators';
+import * as Animatable from 'react-native-animatable';
+
 
 const mapStateToProps = state => {
     return {
@@ -59,12 +61,14 @@ class Favorites extends Component {
                     </View>
 
                     <View>
-                        <ListItem
-                            title={item.name}
-                            subtitle={item.description}
-                            leftAvatar={{source: {uri: baseUrl + item.image}}}
-                            onPress={() => navigate('CampsiteInfo', {campsiteId: item.id})}
-                        />
+                        <Animatable.View animation='fadeInRightBig' duration={2000}>
+                            <ListItem
+                                title={item.name}
+                                subtitle={item.description}
+                                leftAvatar={{source: {uri: baseUrl + item.image}}}
+                                onPress={() => navigate('CampsiteInfo', {campsiteId: item.id})}
+                            />
+                        </Animatable.View>
                     </View>
                 </SwipeRow>
             );
